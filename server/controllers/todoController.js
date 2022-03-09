@@ -53,12 +53,12 @@ async function updateTodo(request, response) {
 
 async function deleteTodo(request, response) {
 
-  if (!request.body.id) {
+  if (!request.params.id) {
     response.status(400).json({ error: 'id missing in params' })
     return
   }
 
-  const [error, result] = await db.deleteTodo(request.body.id)
+  const [error, result] = await db.deleteTodo(request.params.id)
 
   if (error) {
     console.log(error.stack)
