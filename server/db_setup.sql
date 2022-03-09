@@ -8,6 +8,6 @@ CREATE TABLE todos (
         completed boolean,
         priority integer,
         notes text,
-        dueDate text,
+        duedate text,
         status integer
 );

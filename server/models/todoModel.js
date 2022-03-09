@@ -17,11 +17,11 @@ async function insertTodo(todo) {
   try {
     const query = `INSERT into todos
                    (title, completed, priority,
-                   notes, dueDate, status) values
+                   notes, duedate, status) values
                    ($1, $2, $3, $4, $5, $6) RETURNING id`
 
     const values = [todo.title, todo.completed, todo.priority,
-    todo.notes, todo.dueDate, 1]
+    todo.notes, todo.duedate, 1]
 
     const result = await pool.query(query, values)
     return [null, result.rows]
@@ -34,11 +34,11 @@ async function updateTodo(todo) {
   try {
     const query = `UPDATE todos SET
                    title = $2, completed = $3, priority = $4,
-                   notes = $5, dueDate = $6 WHERE id = $1 
+                   notes = $5, duedate = $6 WHERE id = $1 
                    AND status = 1`
 
     const values = [todo.id, todo.title, todo.completed, todo.priority,
-    todo.notes, todo.dueDate]
+    todo.notes, todo.duedate]
 
     const result = await pool.query(query, values)
     return [null, result.rows]
