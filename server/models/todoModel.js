@@ -17,7 +17,7 @@ async function insertTodo(todo) {
   try {
     const query = `INSERT into todos
                    (title, completed, priority,
-                   notes, due_date, status) values
+                   notes, dueDate, status) values
                    ($1, $2, $3, $4, $5, $6) RETURNING id`
 
     const values = [todo.title, todo.completed, todo.priority,
@@ -34,7 +34,7 @@ async function updateTodo(todo) {
   try {
     const query = `UPDATE todos SET
                    title = $2, completed = $3, priority = $4,
-                   notes = $5, due_date = $6 WHERE id = $1 
+                   notes = $5, dueDate = $6 WHERE id = $1 
                    AND status = 1`
 
     const values = [todo.id, todo.title, todo.completed, todo.priority,
