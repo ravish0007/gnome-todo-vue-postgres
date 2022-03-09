@@ -6,9 +6,9 @@ const router = Router();
 
 router.get('/', todoController.fetchAllTodos);
 router.post('/', todoController.insertTodo);
-router.put('/', todoController.updateTodo);
-router.delete('/', todoController.deleteMultiple);
+router.put('/:id', todoController.updateTodo);
 router.delete('/:id', todoController.deleteTodo);
+router.delete('/', todoController.deleteMultiple);
 
 module.exports = router;
 
